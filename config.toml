@@ -1,0 +1,4 @@
+baseURL = "https://canvas.mdhender.dev/"
+languageCode = "en-us"
+title = "A Blank Site"
+disableKinds = ["taxonomy", "taxonomyTerm"]
