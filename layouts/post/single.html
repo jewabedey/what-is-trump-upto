@@ -2,18 +2,19 @@
 
 <main>
   <section>
-    <header>
-      <h1>{{.Title}}</h1>
-    </header>
-
-    <article>{{.Content}}</article>
-
-    <footer>
-      <ul>
-        <!-- {{ with .PrevInSection }}<li><a href="{{ .Permalink }}">&laquo; {{ .Title }}</a></li>{{ end }} -->
-        {{ with .NextInSection }}<li><a href="{{ .Permalink }}">{{ .Title }} &raquo;</a></li>{{ end }}
-      </ul>
-    </footer>
+    <article>
+      <header>
+        <h2>{{ .Title }}</h2>
+      </header>
+      <img src="{{ .Params.image }}" alt="">
+      {{ .Summary }}
+      <span id="stupid"></span>
+      <nav>
+        <ul>
+          <li><a href="{{ .RelPermalink }}">Share &raquo;</a></li>
+        </ul>
+      </nav>
+    </article>
   </section>
 </main>
 

@@ -1,7 +1,27 @@
-    <footer>
-        <ul>
-          <li><a href="https://twitter.com/realDonaldTrump">💩</a></li>
-        </ul>
-    </footer>
-  </body>
-</html>
+<footer>
+  <a id="random" href="#">💩</a>
+</footer>
+
+{{ $posts := (where .Site.RegularPages "Section" "==" "posts") }}
+{{ $postCount := len $posts }}
+<span id="plen" data-len={{ $postCount }}></span>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+  var posts_len = $("#plen").data("len");
+  $("#random").click(function(event) {
+    event.preventDefault();
+    var random_post = Math.floor((Math.random() * posts_len) + 1);
+    var random_url = "/posts/" + random_post;
+
+    if (random_url == window.location.pathname) {
+      if (random_post == posts_len) {
+        window.location = "/posts/" + random_post - 1;
+      } else {
+        window.location = "/posts/" + random_post + 1;
+      }
+    } else {
+      window.location = random_url
+    }
+  });
+</script>
